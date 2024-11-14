@@ -1,0 +1,205 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: #fff;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+:root {
+  --width: 30rem;
+  --border: 0.1rem solid #fff;
+  --primary-color: #22c55e;
+  --secondary-color: #555;
+  --white-color: #fff;
+}
+
+body {
+  background-color: #000;
+}
+
+.notes-app {
+  padding: 3rem;
+}
+
+.note-files {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.new-note {
+  width: var(--width);
+  aspect-ratio: 1;
+  border: 0.2rem dashed var(--white-color);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 1rem;
+  cursor: pointer;
+}
+
+.new-note i {
+  color: var(--primary-color);
+  font-size: 8rem;
+}
+
+.new-note h3 {
+  font-size: 2rem;
+  font-weight: 300;
+  text-transform: capitalize;
+}
+
+.note-form {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.active .note-form {
+  opacity: 1;
+  visibility: visible;
+}
+
+.title-input,
+.note-text-input {
+  width: 22rem;
+  background-color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  border: var(--border);
+  border-radius: 0.3rem;
+  outline: none;
+  font-size: 1.8rem;
+  color: var(--white-color);
+  resize: none;
+}
+
+.note-text-input {
+  height: 7rem;
+}
+
+.title-input::placeholder,
+.note-text-input::placeholder {
+  color: var(--white-color);
+}
+
+.note-btn {
+  width: max-content;
+  border-color: rgba(255, 255, 255, 0.741);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0.4rem 0.6rem;
+  color: #333;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.note-btn:hover {
+  background-color: #fff;
+}
+
+.note {
+  width: var(--width);
+  height: var(--width);
+  background-color: #1c1917;
+  border: var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+}
+
+.title,
+.note-text {
+  width: 100%;
+  background-color: var(--secondary-color);
+  border-radius: 1rem;
+  letter-spacing: 0.1rem;
+  padding: 1.5rem 1 rem;
+  outline: 0.1rem solid #000;
+  transition: outline 0.2s;
+  position: relative;
+  overflow-y: auto;
+  clip-path: inset(0 round 1rem);
+}
+
+.title::-webkit-scrollbar,
+.note-text::-webkit-scrollbar {
+  width: 0.4rem;
+  background-color: #888;
+  border-radius: 0.5rem;
+}
+
+.title::-webkit-scrollbar-thumb,
+.note-text::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 0.5rem;
+}
+
+.title {
+  height: 30%;
+  font-size: 2.5rem;
+  font-weight: 300;
+  text-align: center;
+}
+
+.note-text {
+  height: 50%;
+  font-size: 2rem;
+}
+
+.title:focus,
+.note-text:focus {
+  outline: 0.1rem solid var(--primary-color);
+}
+
+.title::before,
+.note-text::before {
+  content: "Edit Mode";
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 1.2rem;
+  border-radius: 0 0 0 0.4rem;
+  padding: 0.1rem 0.5rem;
+  background-color: var(--primary-color);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s;
+}
+
+.title:focus::before,
+.note-text:focus::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+.settings {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.date {
+  font-size: 1.6rem;
+}
+
+.delete-btn i {
+  font-size: 2rem;
+}
